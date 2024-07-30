@@ -37,7 +37,8 @@ public class ConsoleStore {
      */
 
     public static void main(String[] args) {
-
+double cash = 32.99;
+System.out.println("Would you like to buy some \nCandy    - $2.49\nCereal   - $8.99\nClothing - $22.99\nToy      - 16.99");
     }
 
 }

@@ -1,4 +1,4 @@
-package _02_Generics_Store;
+package _06_Console_Store;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;

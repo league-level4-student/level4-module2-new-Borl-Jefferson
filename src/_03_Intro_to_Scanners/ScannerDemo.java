@@ -24,7 +24,7 @@ public class ScannerDemo {
          * Eclipse's console. This may change depending on the environment where
          * are running your program or the input/output stream you are using.
          */
-
+Scanner scannington = new Scanner(System.in);
         
         
         /*
@@ -41,7 +41,8 @@ public class ScannerDemo {
          * Note: Don't forget to save the results of next() or nextLine() into a
          * String variable.
          */
-
+System.out.println("What's your name?");
+String name = scannington.nextLine();
         
         
         /*
@@ -51,6 +52,8 @@ public class ScannerDemo {
          * See if you can find the scanner method that does this without relying
          * on Integer.parseInt().
          */
+System.out.println("How old are you?");
+int age = scannington.nextInt();
 
         
         
@@ -61,9 +64,16 @@ public class ScannerDemo {
          * Note: There are many methods similar to the one you used for int that
          * are capable of taking in primitive data types.
          */
+System.out.println("True or false: do you have pets?");
+boolean pethaver = scannington.nextBoolean();
 
         // 5.) Print the user's data to the console nicely formatted.
+String pethas = "not have";
+if(pethaver) {
+	pethas="have";
+}
 
+System.out.println("Coming in at " + age + " years of age, " + name + " is confirmed to " + pethas + " pets");
         
         
         /*
