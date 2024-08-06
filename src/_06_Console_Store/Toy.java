@@ -19,4 +19,7 @@ public class Toy extends Stuff {
 		// TODO Auto-generated method stub
 		return new JLabel(loadImage(this.item));
 	}
+	public String getType() {
+		return "toy";
+	}
 }

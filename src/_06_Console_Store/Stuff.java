@@ -20,4 +20,5 @@ public abstract class Stuff {
 			return null;
 		}
 	}
+	 public String getType() {return null;}
 }

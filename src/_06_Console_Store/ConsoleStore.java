@@ -1,5 +1,9 @@
 package _06_Console_Store;
 
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+
 public class ConsoleStore {
 
     /*
@@ -35,10 +39,69 @@ public class ConsoleStore {
      * print out a receipt showing their name, the individual prices of the
      * items and their total.
      */
-
+    	private static final DecimalFormat decfor = new DecimalFormat("00.0");
     public static void main(String[] args) {
-double cash = 32.99;
-System.out.println("Would you like to buy some \nCandy    - $2.49\nCereal   - $8.99\nClothing - $22.99\nToy      - 16.99");
+    	boolean broke = false;
+    	boolean checkout = false;
+    	Cart cart = new Cart();
+Scanner scannington = new Scanner(System.in);
+double cash = 42.50;
+System.out.println("Our store is going out of buisness please help \nsave us from bankruptcy by buying somethings\n");
+
+
+
+
+do {
+System.out.println("Type what you want to purchase\n  candy    - $2.50\n  cereal   - $9\n  clothing - $15\n  toy      - 5.50");
+System.out.println("------------------------------\nBalance: $" +decfor.format(cash+=.01) + "0\n---------------");
+String thing = scannington.nextLine();
+System.out.println("\n\n");
+
+if(thing.equals("candy")) {
+ cart.add(new Candy());
+ System.out.println(thing + " added to cart");
+ cash-=2.49;
+}else if(thing.equals("cereal")) {
+    cart.add(new Cereal());
+    System.out.println(thing + " added to cart");
+    cash-=8.99;
+}else if(thing.equals("clothing")) {
+	cart.add(new Clothing());
+	System.out.println(thing + " added to cart");
+	cash-=22.99;
+}else if(thing.equals("toy")) {
+	cart.add(new Toy());	
+	System.out.println(thing + " added to cart");
+	cash-=16.99;
+}
+
+	if(thing.equals("remove candy")) {
+	cart.removeItem(new Candy());
+	}else if(thing.equals("remove cereal")) {
+	cart.removeItem(new Cereal());
+	}else if(thing.equals("remove clothing")) {
+	cart.removeItem(new Clothing());
+	}else if(thing.equals("remove toy")) {
+	cart.removeItem(new Toy());
+	}
+
+else if(thing.equals("view cart")) {
+	cart.showCart();
+}
+
+else {
+	System.out.println("We don't sell " + thing + " here (make sure item is lowercase)");}
+
+
+
+
+
+
+}while (!checkout);
+
+
+
+
     }
 
 }
