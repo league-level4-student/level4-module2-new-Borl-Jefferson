@@ -13,6 +13,9 @@ public class TernaryOperatorDemo {
     public static void main(String[] args) {
 
         int x = 25;
+     String bal;   
+int cash = 3;
+
 
         /*
          * The following ternary operator checks if x is equal to 5(the if
@@ -27,6 +30,7 @@ public class TernaryOperatorDemo {
          */
 
         x = x == 5 ? x * 5 : x / 5;
+        
 
         System.out.println(x);
 
