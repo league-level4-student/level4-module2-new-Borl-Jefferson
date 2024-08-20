@@ -41,7 +41,8 @@ public class ConsoleStore {
 	private static final DecimalFormat decfor = new DecimalFormat("00.0");
 
 	public static void main(String[] args) {
-		boolean broke = false;
+		int crime = 0;
+		boolean arrested =false;
 		boolean checkout = false;
 		Cart cart = new Cart();
 		Scanner scannington = new Scanner(System.in);
@@ -51,7 +52,7 @@ public class ConsoleStore {
 
 		do {
 			System.out.println(
-					"Type what you want to purchase or remove\n  candy    - $2.50\n  cereal   - $9\n  clothing - $15\n  toy      - 5.50");
+					"Type what you want to purchase or remove\n  candy    - $2.50  x"+cart.ca+"\n  cereal   - $9     x"+cart.ce +"\n  clothing - $15    x"+cart.cl+"\n  toy      - 5.50   x"+cart.toy);
 			System.out.println("------------------------------\nBalance: $" + decfor.format(cash += .01) + "0\n---------------");
 			String thing = scannington.nextLine();
 			System.out.println("\n\n");
@@ -89,6 +90,25 @@ public class ConsoleStore {
 				System.out.println(thing + " added to cart");
 
 			}
+			
+			else if(thing.equals("rob")) {
+				cash+=50;
+				crime++;
+				if(crime<=2) {
+				System.out.println("At least spend it in our store +$50");}
+				else if(crime>5) {
+					arrested=true;
+					checkout=true;
+				}
+				else if(crime>4) {
+					System.out.println("*police sirens* +$50");
+				}
+				else if(crime>2) {
+					System.out.println("Don't waste it all on clothing +$50");
+				}
+				
+				
+			}
 
 			else if (thing.equals("remove candy")) {
 				if (cart.removeCandy()) {
@@ -116,18 +136,43 @@ public class ConsoleStore {
 				if(cash>0) {
 				checkout = true;
 				}else {
-					System.out.println("Not enough money! Type [remove (item name)] to refund");
+					System.out.println("Not enough money! Type (remove <item name>) to refund, or type (rob)");
 				}
 				} else {
 				System.out.println("We don't sell " + thing + " here (make sure item is lowercase)");
 			}
 
 		} while (!checkout);
-cart.reciept();
-System.out.println("	Total spent: 	  $" + decfor.format(42.5-cash));
-System.out.println("\n Thank you for your purchase, make sure to come back, please");
-System.out.println("\n\nBalance left: "+decfor.format(cash)+"\n\n");
+		if(arrested) {
+			
+			cart.arrest();
+			String thing = scannington.nextLine();
+		if(thing.equals("checkout")) {
+			
+		}
+		}
+		
+		cart.reciept();
+		if(arrested) {
+		System.out.println("	Laywer          x1   $300");
+		
+		System.out.println("	Bribes          x1   $"+decfor.format(cash));
+		cash=0;
+		}
+		if(crime>0) {
+		System.out.println("	Felony          x"+crime+"  -$"+(crime*50));
+		}
+System.out.println("	Total spent: 	   $" + decfor.format(cash=((42.5+crime*50)-cash)));
+if(cart.ca==0 && cart.ce==0 && cart.cl==0 && cart.toy==0) {
+	System.out.print("\nMake sure to come back, please, we even gave you a free receipt");
+}else {
+	System.out.print("\nThank you for your purchase, make sure to come back, please");
+}
+cash*=-1;
+System.out.println("\n\nBalance left: "+decfor.format(cash)+"");
 cart.showCart();
+		
+		
 	}
 
 }

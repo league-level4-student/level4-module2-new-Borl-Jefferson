@@ -11,9 +11,33 @@ import javax.swing.JPanel;
 public class Cart<T extends Stuff> {
 	ConsoleStore consto = new ConsoleStore();
 	ArrayList<T> cart = new ArrayList<T>();
+	int ca = 0;
+		int ce = 0;
+		int cl = 0;
+		int toy = 0;
 
 	public void add(T item) {
 		cart.add(item);
+		 ca = 0;
+		 ce = 0;
+		 cl = 0;
+		 toy = 0;
+
+		for (int i = 0; i < cart.size(); i++) {
+			if (cart.get(i).getType().equals("candy")) {
+				ca++;
+			}
+				if (cart.get(i).getType().equals("cereal")) {
+				ce++;
+				}
+				if (cart.get(i).getType().equals("clothing")) {
+				cl++;
+				}
+				if (cart.get(i).getType().equals("toy")) {
+				toy++;
+				
+				}
+		}
 	}
 
 	public void showCart() {
@@ -86,11 +110,12 @@ public class Cart<T extends Stuff> {
 	}
 
 	public void reciept() {
-		System.out.println("		Console Store\n	      _06_Console_Store\n	     Users/League/Eclipse\n");
-		int ca = 0;
-		int ce = 0;
-		int cl = 0;
-		int toy = 0;
+		System.out.println("		Console Store\n	     Users/League/Eclipse\n");
+		 ca = 0;
+		 ce = 0;
+		 cl = 0;
+		 toy = 0;
+
 		for (int i = 0; i < cart.size(); i++) {
 			if (cart.get(i).getType().equals("candy")) {
 				ca++;
@@ -163,4 +188,14 @@ public class Cart<T extends Stuff> {
 		}
 		
 	}
+
+	public void arrest() {
+		System.out.println("The police caught you");
+		System.out.println("The laywer you bought with the money you robbed did well");
+		System.out.println("You're found innocent");
+		System.out.println("You take out a loan to bribe the jury");
+		System.out.println("\nType checkout to checkout");
+	}
 }
+
+
