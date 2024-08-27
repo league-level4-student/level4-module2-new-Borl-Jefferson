@@ -139,7 +139,7 @@ public class Cart<T extends Stuff> {
 			System.out.println("	Cereal   	x" + ce + "   $" + 9*ce);
 		}
 		if (cl > 0) {
-			System.out.println("	Clothing 	x" + cl + "   $" + 11*cl);
+			System.out.println("	Clothing 	x" + cl + "   $" + 15*cl);
 		}
 		if (toy > 0) {
 			System.out.println("	Toy      	x" + toy + "   $" + 5.5*toy);

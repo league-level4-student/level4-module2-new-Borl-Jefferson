@@ -38,7 +38,7 @@ public class ConsoleStore {
 	 * a receipt showing their name, the individual prices of the items and their
 	 * total.
 	 */
-	private static final DecimalFormat decfor = new DecimalFormat("00.0");
+	private static final DecimalFormat decfor = new DecimalFormat("000.0");
 
 	public static void main(String[] args) {
 		int crime = 0;
@@ -75,7 +75,7 @@ public class ConsoleStore {
 
 			} else if (thing.equals("clothing")) {
 				//
-				cash -= 16;
+				cash -= 15;
 
 				//
 				cart.add(new Clothing());
@@ -157,18 +157,20 @@ public class ConsoleStore {
 		System.out.println("	Laywer          x1   $300");
 		
 		System.out.println("	Bribes          x1   $"+decfor.format(cash));
-		cash=0;
+		//cash=0;
 		}
 		if(crime>0) {
 		System.out.println("	Felony          x"+crime+"  -$"+(crime*50));
 		}
-System.out.println("	Total spent: 	   $" + decfor.format(cash=((42.5+crime*50)-cash)));
+System.out.println("	Total spent: 	   $" + decfor.format(((42.5+crime*50)-cash)));
 if(cart.ca==0 && cart.ce==0 && cart.cl==0 && cart.toy==0) {
 	System.out.print("\nMake sure to come back, please, we even gave you a free receipt");
 }else {
 	System.out.print("\nThank you for your purchase, make sure to come back, please");
 }
-cash*=-1;
+if(arrested) {
+cash*=-1;}
+//System.out.println("\n\nBalance left: "+decfor.format((42.5+(crime*50))-cash)+"");
 System.out.println("\n\nBalance left: "+decfor.format(cash)+"");
 cart.showCart();
 		
